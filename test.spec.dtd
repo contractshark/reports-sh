@@ -1,0 +1,435 @@
+<!-- HTML 4.01 Strict DTD from http://www.w3.org/TR/html4/strict.dtd
+     with comments removed for easier modification. -->
+<!ENTITY % HTML.Version "-//W3C//DTD HTML 4.01//EN">
+<!ENTITY % HTML.Frameset "IGNORE">
+<!ENTITY % ContentType "CDATA">
+<!ENTITY % ContentTypes "CDATA">
+<!ENTITY % Charset "CDATA">
+<!ENTITY % Charsets "CDATA">
+<!ENTITY % LanguageCode "NAME">
+<!ENTITY % Character "CDATA">
+<!ENTITY % LinkTypes "CDATA">
+<!ENTITY % MediaDesc "CDATA">
+<!ENTITY % URI "CDATA">
+<!ENTITY % Datetime "CDATA">
+<!ENTITY % Script "CDATA">
+<!ENTITY % StyleSheet "CDATA">
+<!ENTITY % Text "CDATA">
+<!ENTITY % head.misc "SCRIPT|STYLE|META|LINK|OBJECT">
+<!ENTITY % heading "H1|H2|H3|H4|H5|H6">
+<!ENTITY % list "UL | OL">
+<!ENTITY % preformatted "PRE">
+<!ENTITY % HTMLlat1 PUBLIC
+   "-//W3C//ENTITIES Latin1//EN//HTML"
+   "HTMLlat1.ent">
+%HTMLlat1;
+<!ENTITY % HTMLsymbol PUBLIC
+   "-//W3C//ENTITIES Symbols//EN//HTML"
+   "HTMLsymbol.ent">
+%HTMLsymbol;
+<!ENTITY % HTMLspecial PUBLIC
+   "-//W3C//ENTITIES Special//EN//HTML"
+   "HTMLspecial.ent">
+%HTMLspecial;
+<!ENTITY % coreattrs
+ "id          ID             #IMPLIED  
+  class       CDATA          #IMPLIED  
+  style       %StyleSheet;   #IMPLIED  
+  title       %Text;         #IMPLIED  ">
+<!ENTITY % i18n
+ "lang        %LanguageCode; #IMPLIED  
+  dir         (ltr|rtl)      #IMPLIED  ">
+<!ENTITY % events
+ "onclick     %Script;       #IMPLIED  
+  ondblclick  %Script;       #IMPLIED  
+  onmousedown %Script;       #IMPLIED  
+  onmouseup   %Script;       #IMPLIED  
+  onmouseover %Script;       #IMPLIED  
+  onmousemove %Script;       #IMPLIED  
+  onmouseout  %Script;       #IMPLIED  
+  onkeypress  %Script;       #IMPLIED  
+  onkeydown   %Script;       #IMPLIED  
+  onkeyup     %Script;       #IMPLIED  ">
+<!ENTITY % HTML.Reserved "IGNORE">
+<![ %HTML.Reserved; [
+<!ENTITY % reserved
+ "datasrc     %URI;          #IMPLIED  
+  datafld     CDATA          #IMPLIED  
+  dataformatas (plaintext|html) plaintext ">
+]]>
+<!ENTITY % reserved "">
+<!ENTITY % attrs "%coreattrs; %i18n; %events;">
+<!ENTITY % fontstyle
+ "TT | I | B | BIG | SMALL">
+<!ENTITY % phrase "EM | STRONG | DFN | CODE |
+                   SAMP | KBD | VAR | CITE | ABBR | ACRONYM">
+<!ENTITY % special
+   "A | IMG | OBJECT | BR | SCRIPT | MAP | Q | SUB | SUP | SPAN | BDO">
+<!ENTITY % formctrl "INPUT | SELECT | TEXTAREA | LABEL | BUTTON">
+<!ENTITY % inline "#PCDATA | %fontstyle; | %phrase; | %special; | %formctrl;">
+<!ELEMENT (%fontstyle;|%phrase;) - - (%inline;)*>
+<!ATTLIST (%fontstyle;|%phrase;)
+  %attrs;>
+<!ELEMENT (SUB|SUP) - - (%inline;)*>
+<!ATTLIST (SUB|SUP)
+  %attrs;>
+<!ELEMENT SPAN - - (%inline;)*>
+<!ATTLIST SPAN
+  %attrs;                              
+  %reserved;>
+<!ELEMENT BDO - - (%inline;)*>
+<!ATTLIST BDO
+  %coreattrs;                          
+  lang        %LanguageCode; #IMPLIED  
+  dir         (ltr|rtl)      #REQUIRED>
+<!ELEMENT BR - O EMPTY>
+<!ATTLIST BR
+  %coreattrs;>
+<!ENTITY % block
+     "P | %heading; | %list; | %preformatted; | DL | DIV | NOSCRIPT |
+      BLOCKQUOTE | FORM | HR | TABLE | FIELDSET | ADDRESS">
+<!ENTITY % flow "%block; | %inline;">
+<!ELEMENT BODY O O (%block;|SCRIPT)+ +(INS|DEL)>
+<!ATTLIST BODY
+  %attrs;                              
+  onload          %Script;   #IMPLIED  
+  onunload        %Script;   #IMPLIED>
+<!ELEMENT ADDRESS - - (%inline;)*>
+<!ATTLIST ADDRESS
+  %attrs;>
+<!ELEMENT DIV - - (%flow;)*>
+<!ATTLIST DIV
+  %attrs;                              
+  %reserved;>
+<!ENTITY % Shape "(rect|circle|poly|default)">
+<!ENTITY % Coords "CDATA">
+<!ELEMENT A - - (%inline;)* -(A)>
+<!ATTLIST A
+  %attrs;                              
+  charset     %Charset;      #IMPLIED  
+  type        %ContentType;  #IMPLIED  
+  name        CDATA          #IMPLIED  
+  href        %URI;          #IMPLIED  
+  hreflang    %LanguageCode; #IMPLIED  
+  rel         %LinkTypes;    #IMPLIED  
+  rev         %LinkTypes;    #IMPLIED  
+  accesskey   %Character;    #IMPLIED  
+  shape       %Shape;        rect      
+  coords      %Coords;       #IMPLIED  
+  tabindex    NUMBER         #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED>
+<!ELEMENT MAP - - ((%block;) | AREA)+>
+<!ATTLIST MAP
+  %attrs;                              
+  name        CDATA          #REQUIRED>
+<!ELEMENT AREA - O EMPTY>
+<!ATTLIST AREA
+  %attrs;                              
+  shape       %Shape;        rect      
+  coords      %Coords;       #IMPLIED  
+  href        %URI;          #IMPLIED  
+  nohref      (nohref)       #IMPLIED  
+  alt         %Text;         #REQUIRED 
+  tabindex    NUMBER         #IMPLIED  
+  accesskey   %Character;    #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED>
+<!ELEMENT LINK - O EMPTY>
+<!ATTLIST LINK
+  %attrs;                              
+  charset     %Charset;      #IMPLIED  
+  href        %URI;          #IMPLIED  
+  hreflang    %LanguageCode; #IMPLIED  
+  type        %ContentType;  #IMPLIED  
+  rel         %LinkTypes;    #IMPLIED  
+  rev         %LinkTypes;    #IMPLIED  
+  media       %MediaDesc;    #IMPLIED>
+<!ENTITY % Length "CDATA">
+<!ENTITY % MultiLength "CDATA">
+<![ %HTML.Frameset; [
+<!ENTITY % MultiLengths "CDATA">
+]]>
+<!ENTITY % Pixels "CDATA">
+<!ELEMENT IMG - O EMPTY>
+<!ATTLIST IMG
+  %attrs;                              
+  src         %URI;          #REQUIRED 
+  alt         %Text;         #REQUIRED 
+  longdesc    %URI;          #IMPLIED  
+  name        CDATA          #IMPLIED  
+  height      %Length;       #IMPLIED  
+  width       %Length;       #IMPLIED  
+  usemap      %URI;          #IMPLIED  
+  ismap       (ismap)        #IMPLIED>
+<!ELEMENT OBJECT - - (PARAM | %flow;)*>
+<!ATTLIST OBJECT
+  %attrs;                              
+  declare     (declare)      #IMPLIED  
+  classid     %URI;          #IMPLIED  
+  codebase    %URI;          #IMPLIED  
+  data        %URI;          #IMPLIED  
+  type        %ContentType;  #IMPLIED  
+  codetype    %ContentType;  #IMPLIED  
+  archive     CDATA          #IMPLIED  
+  standby     %Text;         #IMPLIED  
+  height      %Length;       #IMPLIED  
+  width       %Length;       #IMPLIED  
+  usemap      %URI;          #IMPLIED  
+  name        CDATA          #IMPLIED  
+  tabindex    NUMBER         #IMPLIED  
+  %reserved;>
+<!ELEMENT PARAM - O EMPTY>
+<!ATTLIST PARAM
+  id          ID             #IMPLIED  
+  name        CDATA          #REQUIRED 
+  value       CDATA          #IMPLIED  
+  valuetype   (DATA|REF|OBJECT) DATA   
+  type        %ContentType;  #IMPLIED>
+<!ELEMENT HR - O EMPTY>
+<!ATTLIST HR
+  %attrs;>
+<!ELEMENT P - O (%inline;)*>
+<!ATTLIST P
+  %attrs;>
+<!ELEMENT (%heading;)  - - (%inline;)*>
+<!ATTLIST (%heading;)
+  %attrs;>
+<!ENTITY % pre.exclusion "IMG|OBJECT|BIG|SMALL|SUB|SUP">
+<!ELEMENT PRE - - (%inline;)* -(%pre.exclusion;)>
+<!ATTLIST PRE
+  %attrs;>
+<!ELEMENT Q - - (%inline;)*>
+<!ATTLIST Q
+  %attrs;                              
+  cite        %URI;          #IMPLIED>
+<!ELEMENT BLOCKQUOTE - - (%block;|SCRIPT)+>
+<!ATTLIST BLOCKQUOTE
+  %attrs;                              
+  cite        %URI;          #IMPLIED>
+<!ELEMENT (INS|DEL) - - (%flow;)*>
+<!ATTLIST (INS|DEL)
+  %attrs;                              
+  cite        %URI;          #IMPLIED  
+  datetime    %Datetime;     #IMPLIED>
+<!ELEMENT DL - - (DT|DD)+>
+<!ATTLIST DL
+  %attrs;>
+<!ELEMENT DT - O (%inline;)*>
+<!ELEMENT DD - O (%flow;)*>
+<!ATTLIST (DT|DD)
+  %attrs;>
+<!ELEMENT OL - - (LI)+>
+<!ATTLIST OL
+  %attrs;>
+<!ELEMENT UL - - (LI)+>
+<!ATTLIST UL
+  %attrs;>
+<!ELEMENT LI - O (%flow;)*>
+<!ATTLIST LI
+  %attrs;>
+<!ELEMENT FORM - - (%block;|SCRIPT)+ -(FORM)>
+<!ATTLIST FORM
+  %attrs;                              
+  action      %URI;          #REQUIRED 
+  method      (GET|POST)     GET       
+  enctype     %ContentType;  "application/x-www-form-urlencoded"
+  accept      %ContentTypes; #IMPLIED  
+  name        CDATA          #IMPLIED  
+  onsubmit    %Script;       #IMPLIED  
+  onreset     %Script;       #IMPLIED  
+  accept-charset %Charsets;  #IMPLIED>
+<!ELEMENT LABEL - - (%inline;)* -(LABEL)>
+<!ATTLIST LABEL
+  %attrs;                              
+  for         IDREF          #IMPLIED  
+  accesskey   %Character;    #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED>
+<!ENTITY % InputType
+  "(TEXT | PASSWORD | CHECKBOX |
+    RADIO | SUBMIT | RESET |
+    FILE | HIDDEN | IMAGE | BUTTON)">
+<!ELEMENT INPUT - O EMPTY>
+<!ATTLIST INPUT
+  %attrs;                              
+  type        %InputType;    TEXT      
+  name        CDATA          #IMPLIED  
+  value       CDATA          #IMPLIED  
+  checked     (checked)      #IMPLIED  
+  disabled    (disabled)     #IMPLIED  
+  readonly    (readonly)     #IMPLIED  
+  size        CDATA          #IMPLIED  
+  maxlength   NUMBER         #IMPLIED  
+  src         %URI;          #IMPLIED  
+  alt         CDATA          #IMPLIED  
+  usemap      %URI;          #IMPLIED  
+  ismap       (ismap)        #IMPLIED  
+  tabindex    NUMBER         #IMPLIED  
+  accesskey   %Character;    #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED  
+  onselect    %Script;       #IMPLIED  
+  onchange    %Script;       #IMPLIED  
+  accept      %ContentTypes; #IMPLIED  
+  %reserved;>
+<!ELEMENT SELECT - - (OPTGROUP|OPTION)+>
+<!ATTLIST SELECT
+  %attrs;                              
+  name        CDATA          #IMPLIED  
+  size        NUMBER         #IMPLIED  
+  multiple    (multiple)     #IMPLIED  
+  disabled    (disabled)     #IMPLIED  
+  tabindex    NUMBER         #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED  
+  onchange    %Script;       #IMPLIED  
+  %reserved;>
+<!ELEMENT OPTGROUP - - (OPTION)+>
+<!ATTLIST OPTGROUP
+  %attrs;                              
+  disabled    (disabled)     #IMPLIED  
+  label       %Text;         #REQUIRED>
+<!ELEMENT OPTION - O (#PCDATA)>
+<!ATTLIST OPTION
+  %attrs;                              
+  selected    (selected)     #IMPLIED
+  disabled    (disabled)     #IMPLIED  
+  label       %Text;         #IMPLIED  
+  value       CDATA          #IMPLIED>
+<!ELEMENT TEXTAREA - - (#PCDATA)>
+<!ATTLIST TEXTAREA
+  %attrs;                              
+  name        CDATA          #IMPLIED
+  rows        NUMBER         #REQUIRED
+  cols        NUMBER         #REQUIRED
+  disabled    (disabled)     #IMPLIED  
+  readonly    (readonly)     #IMPLIED
+  tabindex    NUMBER         #IMPLIED  
+  accesskey   %Character;    #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED  
+  onselect    %Script;       #IMPLIED  
+  onchange    %Script;       #IMPLIED  
+  %reserved;>
+<!ELEMENT FIELDSET - - (#PCDATA,LEGEND,(%flow;)*)>
+<!ATTLIST FIELDSET
+  %attrs;>
+<!ELEMENT LEGEND - - (%inline;)*>
+<!ATTLIST LEGEND
+  %attrs;                              
+  accesskey   %Character;    #IMPLIED>
+<!ELEMENT BUTTON - -
+     (%flow;)* -(A|%formctrl;|FORM|FIELDSET)>
+<!ATTLIST BUTTON
+  %attrs;                              
+  name        CDATA          #IMPLIED
+  value       CDATA          #IMPLIED  
+  type        (button|submit|reset) submit 
+  disabled    (disabled)     #IMPLIED  
+  tabindex    NUMBER         #IMPLIED  
+  accesskey   %Character;    #IMPLIED  
+  onfocus     %Script;       #IMPLIED  
+  onblur      %Script;       #IMPLIED  
+  %reserved;>
+<!ENTITY % TFrame "(void|above|below|hsides|lhs|rhs|vsides|box|border)">
+<!ENTITY % TRules "(none | groups | rows | cols | all)">
+<!ENTITY % TAlign "(left|center|right)">
+<!ENTITY % cellhalign
+  "align      (left|center|right|justify|char) #IMPLIED
+   char       %Character;    #IMPLIED  
+   charoff    %Length;       #IMPLIED  ">
+<!ENTITY % cellvalign
+  "valign     (top|middle|bottom|baseline) #IMPLIED">
+<!ELEMENT TABLE - -
+     (CAPTION?, (COL*|COLGROUP*), THEAD?, TFOOT?, TBODY+)>
+<!ELEMENT CAPTION  - - (%inline;)*>
+<!ELEMENT THEAD    - O (TR)+>
+<!ELEMENT TFOOT    - O (TR)+>
+<!ELEMENT TBODY    O O (TR)+>
+<!ELEMENT COLGROUP - O (COL)*>
+<!ELEMENT COL      - O EMPTY>
+<!ELEMENT TR       - O (TH|TD)+>
+<!ELEMENT (TH|TD)  - O (%flow;)*>
+<!ATTLIST TABLE                        
+  %attrs;                              
+  summary     %Text;         #IMPLIED  
+  width       %Length;       #IMPLIED  
+  border      %Pixels;       #IMPLIED  
+  frame       %TFrame;       #IMPLIED  
+  rules       %TRules;       #IMPLIED  
+  cellspacing %Length;       #IMPLIED  
+  cellpadding %Length;       #IMPLIED  
+  %reserved;                           
+  datapagesize CDATA         #IMPLIED>
+<!ATTLIST CAPTION
+  %attrs;>
+<!ATTLIST COLGROUP
+  %attrs;                              
+  span        NUMBER         1         
+  width       %MultiLength;  #IMPLIED  
+  %cellhalign;                         
+  %cellvalign;>
+<!ATTLIST COL                          
+  %attrs;                              
+  span        NUMBER         1         
+  width       %MultiLength;  #IMPLIED  
+  %cellhalign;                         
+  %cellvalign;>
+<!ATTLIST (THEAD|TBODY|TFOOT)          
+  %attrs;                              
+  %cellhalign;                         
+  %cellvalign;>
+<!ATTLIST TR                           
+  %attrs;                              
+  %cellhalign;                         
+  %cellvalign;>
+<!ENTITY % Scope "(row|col|rowgroup|colgroup)">
+<!ATTLIST (TH|TD)                      
+  %attrs;                              
+  abbr        %Text;         #IMPLIED  
+  axis        CDATA          #IMPLIED  
+  headers     IDREFS         #IMPLIED  
+  scope       %Scope;        #IMPLIED  
+  rowspan     NUMBER         1         
+  colspan     NUMBER         1         
+  %cellhalign;                         
+  %cellvalign;>
+<!ENTITY % head.content "TITLE & BASE?">
+<!ELEMENT HEAD O O (%head.content;) +(%head.misc;)>
+<!ATTLIST HEAD
+  %i18n;                               
+  profile     %URI;          #IMPLIED>
+<!ELEMENT TITLE - - (#PCDATA) -(%head.misc;)>
+<!ATTLIST TITLE %i18n>
+<!ELEMENT BASE - O EMPTY>
+<!ATTLIST BASE
+  href        %URI;          #REQUIRED>
+<!ELEMENT META - O EMPTY>
+<!ATTLIST META
+  %i18n;                               
+  http-equiv  NAME           #IMPLIED  
+  name        NAME           #IMPLIED  
+  content     CDATA          #REQUIRED 
+  scheme      CDATA          #IMPLIED>
+<!ELEMENT STYLE - - %StyleSheet>
+<!ATTLIST STYLE
+  %i18n;                               
+  type        %ContentType;  #REQUIRED 
+  media       %MediaDesc;    #IMPLIED  
+  title       %Text;         #IMPLIED>
+<!ELEMENT SCRIPT - - %Script;>
+<!ATTLIST SCRIPT
+  charset     %Charset;      #IMPLIED  
+  type        %ContentType;  #REQUIRED 
+  src         %URI;          #IMPLIED  
+  defer       (defer)        #IMPLIED  
+  event       CDATA          #IMPLIED  
+  for         %URI;          #IMPLIED>
+<!ELEMENT NOSCRIPT - - (%block;)+>
+<!ATTLIST NOSCRIPT
+  %attrs;>
+<!ENTITY % html.content "HEAD, BODY">
+<!ELEMENT HTML O O (%html.content;)>
+<!ATTLIST HTML
+  %i18n;>
